@@ -1,2 +1,3 @@
 # ledTeach
-Repository to learn how to program using leds
+start program with :
+sudo ./parent.py /home/pi/ledTeach/code.py
