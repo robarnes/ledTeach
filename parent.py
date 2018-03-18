@@ -14,11 +14,21 @@ import sys,time,subprocess,logging, os, sys, watchdog, watchdog.events, watchdog
 from neopixel import *
 import argparse
 import signal
+import shutil
 
 subfile = sys.argv[1]
- 
+
+# THIS IS SOURCE FILE
+src_file = r'code.py'
+
 def launch():
   global process
+  # create a copy of file
+  datetime_var = time.strftime("%m%d%y-%H%M")
+  dst_file = r'archive/code-{}.py'.format(datetime_var)
+  shutil.copy2(src_file, dst_file)
+  time.sleep(.1)
+  # restart code
   process = subprocess.Popen(subfile, shell=True)
  
 def samefile(a,b):
